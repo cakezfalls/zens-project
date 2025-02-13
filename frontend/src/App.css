@@ -1,0 +1,10 @@
+body {
+  background-image: linear-gradient(to bottom, #11131F, #2C3155); 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-size: cover; 
+  margin: 0; 
+  padding: 0; 
+  height: 100vh;
+}
+

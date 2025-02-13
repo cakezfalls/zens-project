@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Satoshi';
+    src: url();
+}
+
+.main-wrapper {
+    text-align: center;
+    width: 516px;
+    height: 217px;
+    margin: auto;
+
+    margin-top: 150px;
+}
+
+.title {
+    font-size: 48px; 
+    font-weight: 900;
+    background: linear-gradient(to right,#9CA9FF, #FF7BFB); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.title, p {
+    margin: 0;
+}
+
+.description {
+    margin-top: 12px;
+    font-size: 18px;
+    color: #7A839F;
+    font-style: ;
+}
+
+.search-input {
+    width: 340px;
+    height: 54px;
+    border-radius: 12px;
+    
+    margin-top: 44px;
+}
+
+.search-input::placeholder {
+    color:#7A839F;
+    padding-left: 16px;
+}

@@ -1,0 +1,38 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.ZENS-Logo {
+  width: 99px;
+  height: 18px;
+}
+
+
+.burger-button {
+  background-color: #FFFFFF;
+  width: 44px;
+  height: 44px;
+  border-radius:50px;
+}
+
+.right-menu {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.connect-button {
+  width: 94px;
+  height: 44px;
+  background-color: #5A6CDE;
+  border-radius:50px;
+  color: #FFFFFF;
+}
+
+.connect-button:active {
+  background-color:#FFFFFF;
+}
