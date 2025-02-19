@@ -12,7 +12,11 @@ const Header = () => {
             <div className='right-menu'>
 
                 <div className='burger-button'>
-            
+                    
+                 <div className='line'></div> 
+                 <div className='line'></div> 
+                 <div className='line'></div>
+
                 </div>
 
                 <div className='button-container'>

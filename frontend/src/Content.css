@@ -1,14 +1,8 @@
-@font-face {
-    font-family: 'Satoshi';
-    src: url();
-}
-
 .main-wrapper {
     text-align: center;
     width: 516px;
     height: 217px;
     margin: auto;
-
     margin-top: 150px;
 }
 
@@ -29,18 +23,18 @@
     margin-top: 12px;
     font-size: 18px;
     color: #7A839F;
-    font-style: ;
 }
 
 .search-input {
+    font-family: 'Satoshi', sans-serif;
     width: 340px;
     height: 54px;
     border-radius: 12px;
-    
     margin-top: 44px;
+    padding-left: 14px;
 }
 
 .search-input::placeholder {
     color:#7A839F;
-    padding-left: 16px;
+    padding-left: 2px;
 }
