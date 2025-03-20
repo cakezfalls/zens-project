@@ -1,0 +1,29 @@
+@font-face { 
+    font-family: 'Satoshi';
+    src: url(../public/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Black.woff2) format(woff2);
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+@font-face {
+    font-family: 'Satoshi-Medium';
+    src: url(../public/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Medium.woff2) format(woff2);
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+@import "tailwindcss";
+
+
+@theme  {
+    --font-satoshi: 'Satoshi', sans-serif;
+  }
+
+@layer utilities {
+    .text-gradient {
+      background: linear-gradient(to right, #9CA9FF, #FF7BFB);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }  
+

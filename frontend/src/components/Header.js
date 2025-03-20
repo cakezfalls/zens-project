@@ -5,6 +5,10 @@ import '../Header.css'
 
 const Header = () => {
     return (
+
+        <>
+        <h1 className="text-3xl font-bold text-red-500">Tailwind работает!</h1>
+
         <header className='main-header'>
 
             <img className='ZENS-Logo'src="/img/ZENS.png" alt="ZENS" />
@@ -24,6 +28,7 @@ const Header = () => {
                 </div> 
             </div> 
         </header>
+        </>
     )
 }
 
