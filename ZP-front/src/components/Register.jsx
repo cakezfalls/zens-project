@@ -16,7 +16,7 @@ export default function Register(props) {
     }
 
 
-    
+
     return (
         <div className='flex justify-center p-[140px]'>
             <div className='bg-white w-[634px] h-[735px] rounded-3xl'>
