@@ -9,6 +9,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultConfig,
   RainbowKitProvider,
+  lightTheme
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
@@ -57,7 +58,11 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
    <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider modalSize='compact' initialChain={goerli}>
+        <RainbowKitProvider modalSize='compact' initialChain={goerli} theme={lightTheme({
+          accentColor:'#5A6CDE',
+          borderRadius: 'large',
+          overlayBlur: 'small',
+        })}>
           <App />
         </RainbowKitProvider>
       </QueryClientProvider>
