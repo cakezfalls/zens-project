@@ -63,7 +63,7 @@ export default function Content() {
             </div>
         </div>
     ) : (
-    //   <Register name={selectDomain}/>
-    <MyNames/>
+    <Register name={selectDomain}/>
+    // <MyNames/>
     )
 }
