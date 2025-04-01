@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.jsx'
 import icon from '../public/ZERO_icons/icons/PNG/square/icon_square_dark.png';
 
@@ -13,7 +12,7 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
-  goerli,
+  sepolia,
   optimismGoerli,
 } from 'wagmi/chains';
 import {
@@ -45,7 +44,7 @@ const zero = {
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [goerli, optimismGoerli, zero],
+  chains: [sepolia, optimismGoerli, zero],
   ssr: true, 
 });
 
@@ -58,7 +57,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
    <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider modalSize='compact' initialChain={goerli} theme={lightTheme({
+        <RainbowKitProvider modalSize='compact' initialChain={sepolia} theme={lightTheme({
           accentColor:'#5A6CDE',
           borderRadius: 'large',
           overlayBlur: 'small',

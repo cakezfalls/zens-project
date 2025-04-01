@@ -1,7 +1,8 @@
 import react, { useState } from 'react';
 import '../App.css'
 import Register from './Register';
-import MyNames from './MyNames';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -54,16 +55,17 @@ export default function Content() {
 
                 <ul className='mt-3  bg-amber-50 rounded-2xl'>
                      {domains.map((domain, index) => (
+                        <Link to="/reg">
                         <li onClick = {()=>handlePickDomain(domain.name)} key={index} className="font-satoshi-medium text-base flex items-center justify-between p-4 hover:bg-[#F0F0F0] rounded-2xl cursor-pointer ">
                             <span>{domain.name}</span>
                             <span className="px-3 py-1 text-green-600 bg-green-100 rounded-lg">{domain.status}</span>
                         </li>
+                        </Link>
                          ))}
                 </ul>
             </div>
         </div>
     ) : (
     <Register name={selectDomain}/>
-    // <MyNames/>
     )
 }
