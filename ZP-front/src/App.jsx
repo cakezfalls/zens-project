@@ -16,7 +16,7 @@ function App() {
        <Routes>
           <Route path="/" element={<Content />} />
           <Route path="/names" element={<MyNames />} />
-          <Route path="/reg" element={<Register name={'selectDomain'}/>} />
+          <Route path="/reg" element={<Register />} />
         </Routes>
       </div>
     </Router>
