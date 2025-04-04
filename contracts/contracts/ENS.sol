@@ -53,19 +53,19 @@ contract ZENS {
         return Domains[_name].owner;
     }
 
-    function extandDomain(
-        uint _yearsToExtand,
+    function extendDomain(
+        uint _yearsToExtend,
         string memory _name
     ) public payable {
         require(msg.sender == Domains[_name].owner, "You are not a owner");
-        require(_yearsToExtand > 0, "Incorrect number");
+        require(_yearsToExtend > 0, "Incorrect number");
 
-        uint priceToExtand = priceForYear * _yearsToExtand;
+        uint priceToExtand = priceForYear * _yearsToExtend;
 
         require(msg.value >= priceToExtand, "Not enought money");
 
-        Domains[_name].yearsToBook += _yearsToExtand;
-        Domains[_name].creatingTime += _yearsToExtand * 365 days;
+        Domains[_name].yearsToBook += _yearsToExtend;
+        Domains[_name].creatingTime += _yearsToExtend * 365 days;
     }
 
     function withdraw(uint _amount) public onlyOwner {
