@@ -1,8 +1,9 @@
 import { ethers } from "ethers";
-import ZENS_ABI from "../../contracts/artifacts/contracts/ENS.sol/abi.json";
-import { ZENS_CONTRACT_ADDRESS } from "../config";
+import { useState } from "react";
+import ZENS_ABI from "../../../contracts/artifacts/contracts/ZENS.sol/ZENS.json";
+import { ZENS_CONTRACT_ADDRESS } from "../../config";
 
-function BuyDomainButton(props) {
+function BuyDomainButton({ name, years, value }) {
   const [txHash, setTxHash] = useState(null);
   const [error, setError] = useState("");
 
@@ -12,26 +13,30 @@ function BuyDomainButton(props) {
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(
         ZENS_CONTRACT_ADDRESS,
-        ZENS_ABI,
+        ZENS_ABI.abi,
         signer
       );
 
-      const domainName = {props.name};
-      const years = {props.years};
-      const priceInEth = ethers.parseEther({props.value});
-
-      const tx = await contract.setDomain(domainName, years, {
-        value: priceInEth,
+      const tx = await contract.setDomain(name, years, {
+        value: ethers.parseEther(value.toString()),
       });
 
       await tx.wait();
       setTxHash(tx.hash);
-
     } catch (err) {
       console.error(err);
       setError(err.message || "Something went wrong");
     }
   };
+
+  return (
+    <button
+      onClick={handleBuy}
+      className="font-satoshi-medium text-base text-[#FFFFFF] w-[594px] h-11 mt-6 bg-[#5A6CDE] rounded-full hover:cursor-pointer"
+    >
+      Buy
+    </button>
+  );
 }
 
-export default buyDomain;
+export default BuyDomainButton;
