@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 contract ZENS {
     address owner;
-    uint priceForYear;
+    uint public priceForYear;
 
     struct Domain {
         string name;
