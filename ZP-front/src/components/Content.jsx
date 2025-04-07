@@ -2,12 +2,14 @@ import react, { useState } from "react";
 import "../App.css";
 import Register from "./Register";
 import { Link } from "react-router-dom";
+import { useDomain } from "./DomainContext";
 
 export default function Content() {
   const [value, setValue] = useState("");
   const [domains, setDomains] = useState([]);
   const [pick, setPick] = useState(false);
   const [selectDomain, setSelectDomain] = useState("");
+  const { setDomain } = useDomain();
 
   function handleChange(e) {
     const input = e.target.value;
@@ -53,7 +55,10 @@ export default function Content() {
           {domains.map((domain, index) => (
             <Link to="/reg">
               <li
-                onClick={() => handlePickDomain(domain.name)}
+                onClick={() => {
+                  handlePickDomain(domain.name);
+                  setDomain(domain.name);
+                }}
                 key={index}
                 className="font-satoshi-medium text-base flex items-center justify-between p-4 hover:bg-[#F0F0F0] rounded-2xl cursor-pointer "
               >

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDomain } from "./DomainContext";
 import YearSlide from "./YearSlide";
 import BuyDomainButton from "./BuyDomainButton";
 import useGetGas from "./useGetGas";
@@ -7,6 +8,7 @@ import "../App";
 export default function Register(props) {
   const [years, setYears] = useState(1);
   const [currency, setCurrency] = useState("ETH");
+  const { domain } = useDomain();
   const { gas, fee, yearPrice, total } = useGetGas({ years });
 
   function handleRemoveYears() {
@@ -22,7 +24,7 @@ export default function Register(props) {
       <div className="bg-white w-[634px] h-[735px] rounded-3xl">
         <div className="flex flex-col justify-center items-center">
           <h3 className="font-satoshi text-2xl text-[#23252E] mt-5">
-            Register {props.name}
+            Register {domain}
           </h3>
           <div className="flex justify-between w-[594px] h-[68px] mt-6 border-2 rounded-[100px]">
             <button
@@ -141,7 +143,7 @@ export default function Register(props) {
             </div>
           </div>
 
-          <BuyDomainButton name={props.name} years={years} value={total} />
+          <BuyDomainButton name={domain} years={years} value={total} />
         </div>
       </div>
     </div>

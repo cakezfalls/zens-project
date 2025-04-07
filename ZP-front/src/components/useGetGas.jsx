@@ -4,6 +4,7 @@ import ZENS_ABI from "../../../contracts/artifacts/contracts/ZENS.sol/ZENS.json"
 import { ZENS_CONTRACT_ADDRESS } from "../../config";
 
 export default function useGetGas({ years }) {
+  const apiKey = import.meta.env.VITE_ETHERSCAN_API_KEY;
   const [gas, setGas] = useState(null);
   const [fee, setFee] = useState(null);
   const [yearPrice, setYearPrice] = useState(null);
@@ -13,7 +14,7 @@ export default function useGetGas({ years }) {
     const fetchGas = async () => {
       try {
         const result = await fetch(
-          "https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=GP8AACS2ITKUV4NQCXAM1FMVARI73A7Q93"
+          `https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${apiKey}`
         );
         const data = await result.json();
         const gweiPrice = data.result.FastGasPrice;
