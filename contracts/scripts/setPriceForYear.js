@@ -1,13 +1,13 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const contractAddress = "0xbb24E585C4c577Be9c3B8026A06F81975E6171FC";
+  const contractAddress = "0xECeC3d668E123b9964F946c366d42d6F903D09cf";
   const ZENS = await ethers.getContractAt("ZENS", contractAddress);
 
-  const tx = await ZENS.setPriceForYear(ethers.parseEther("0.003"));
+  const tx = await ZENS.setPriceForYear(ethers.parseEther("0.001"));
   await tx.wait();
 
-  console.log("✅ Установлена цена за год: 0.003 ETH");
+  console.log("✅ Установлена цена за год: 0.001 ETH");
 }
 
 main().catch((error) => {

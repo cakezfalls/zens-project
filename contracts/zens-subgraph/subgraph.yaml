@@ -1,0 +1,35 @@
+specVersion: 1.3.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ZENS
+    network: sepolia
+    source:
+      address: "0xECeC3d668E123b9964F946c366d42d6F903D09cf"
+      abi: ZENS
+      startBlock: 8092022
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - DomainExtended
+        - DomainRegistered
+        - FundsWithdrawn
+        - PriceChanged
+      abis:
+        - name: ZENS
+          file: ./abis/ZENS.json
+      eventHandlers:
+        - event: DomainExtended(string,uint256)
+          handler: handleDomainExtended
+        - event: DomainRegistered(string,indexed address,uint256)
+          handler: handleDomainRegistered
+        - event: FundsWithdrawn(address,uint256)
+          handler: handleFundsWithdrawn
+        - event: PriceChanged(uint256)
+          handler: handlePriceChanged
+      file: ./src/zens.ts

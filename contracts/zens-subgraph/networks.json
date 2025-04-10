@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "ZENS": {
+      "address": "0xECeC3d668E123b9964F946c366d42d6F903D09cf",
+      "startBlock": 8092022
+    }
+  }
+}

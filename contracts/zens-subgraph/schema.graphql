@@ -1,0 +1,35 @@
+type DomainExtended @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  newExpiration: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DomainRegistered @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  owner: Bytes! # address
+  expired: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type FundsWithdrawn @entity(immutable: true) {
+  id: Bytes!
+  to: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PriceChanged @entity(immutable: true) {
+  id: Bytes!
+  newPrice: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
