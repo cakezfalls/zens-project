@@ -11,18 +11,44 @@ export default function Content() {
   const [selectDomain, setSelectDomain] = useState("");
   const { setDomain } = useDomain();
 
-  function handleChange(e) {
+  async function checkDomainStatus(name) {
+    const query = `
+      {
+        domainRegistereds(where: { name: "${name}" }) {
+          id
+        }
+      }
+    `;
+
+    const res = await fetch(
+      "https://api.studio.thegraph.com/query/108919/zens-subgraph/version/latest",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      }
+    );
+
+    const data = await res.json();
+    return data.data.domainRegistereds.length > 0 ? "Registered" : "Available";
+  }
+
+  async function handleChange(e) {
     const input = e.target.value;
     setValue(input);
 
     if (input.trim() === "") {
       setDomains([]);
     } else {
-      setDomains([
-        { name: `${input}.zero`, status: "available" },
-        { name: `${input}.zens`, status: "available" },
-        { name: `${input}.zeth`, status: "available" },
-      ]);
+      const endings = ["zero", "zens", "zeth"];
+      const domainChecks = await Promise.all(
+        endings.map(async (end) => {
+          const name = `${input}.${end}`;
+          const status = await checkDomainStatus(name);
+          return { name, status };
+        })
+      );
+      setDomains(domainChecks);
     }
   }
 
@@ -63,7 +89,16 @@ export default function Content() {
                 className="font-satoshi-medium text-base flex items-center justify-between p-4 hover:bg-[#F0F0F0] rounded-2xl cursor-pointer "
               >
                 <span>{domain.name}</span>
-                <span className="px-3 py-1 text-green-600 bg-green-100 rounded-lg">
+                <span
+                  className={`px-3 py-1 rounded-lg
+                        ${
+                          domain.status === "Available"
+                            ? "text-green-600 bg-green-100"
+                            : domain.status === "Registered"
+                            ? "text-blue-600 bg-blue-100"
+                            : "text-red-600 bg-red-100"
+                        }`}
+                >
                   {domain.status}
                 </span>
               </li>
